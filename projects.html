@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Ravindrakumar M. Purohit</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="icon" type="image/png" href="images/ravindrakumar.png">
+
+    <style>
+        /* Styles for Automatic Numbering (Matching Publications) */
+        ol.project-list {
+            padding-left: 1.5rem; /* Indent for numbers */
+            margin-top: 1rem;
+        }
+        ol.project-list li {
+            padding-left: 0.5rem; /* Space between number and content */
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        /* Uniform Font Size for Headings */
+        ol.project-list li h3 {
+            font-size: 1rem; /* Matches body text size */
+            font-weight: 700;
+            margin: 0 0 0.2rem 0;
+        }
+
+        /* Project Description Spacing */
+        ol.project-list li p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tag Styling */
+        .meta-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            border: 1px solid var(--border-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <main class="container">
+        <section class="section">
+            <h1 data-i18n="nav_projects">Projects</h1>
+        </section>
+
+        <ol class="project-list section">
+            
+            <li class="card">
+                <h3>Carefinder</h3>
+                <p>A B2C medicine delivery website optimizing traditional delivery and enabling price comparisons across local stores.</p>
+                <span class="meta-tag">Web Dev</span>
+            </li>
+
+            <li class="card">
+                <h3>Language Identification NLP</h3>
+                <p>Designed an NLP-based algorithm to accurately identify the language of a given text input.</p>
+                <span class="meta-tag">NLP</span>
+            </li>
+
+            <li class="card">
+                <h3>Face-Mask Detector (YoloV5)</h3>
+                <p>Developed a detection model identifying improper mask usage or absence of masks.</p>
+                <span class="meta-tag">Computer Vision</span>
+            </li>
+
+        </ol>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

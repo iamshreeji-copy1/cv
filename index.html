@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="images/ravindrakumar.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravindrakumar M. Purohit | Ph.D. Candidate</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Internal styles for the Profile Layout */
+        .profile-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        .profile-text {
+            flex: 1;
+        }
+        .profile-img-container {
+            flex-shrink: 0;
+        }
+        .profile-img {
+            width: 180px;
+            /* height: 180px;  <-- REMOVED fixed height */
+            height: auto; /* <-- ADDED auto height to maintain aspect ratio */
+            /* object-fit: cover; <-- REMOVED to prevent cropping */
+            
+            border-radius: 4px; /* Slight rounding */
+            border: 1px solid var(--border-light);
+            
+            /* Start Black & White */
+            filter: grayscale(100%); 
+            
+            /* Smooth Transition Effect */
+            transition: filter 0.4s ease-in-out;
+            cursor: pointer;
+        }
+
+        /* COLOR ON HOVER */
+        .profile-img:hover {
+            filter: grayscale(0%);
+        }
+        
+        /* Mobile Responsive: Stack text and image */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column-reverse; /* Image on top for mobile */
+                gap: 1.5rem;
+                align-items: center;
+                text-align: center;
+            }
+            .profile-img {
+                width: 150px;
+                /* height: 150px; <-- REMOVED fixed height for mobile */
+                height: auto; /* <-- Ensure height is auto on mobile too */
+            }
+            /* Center buttons on mobile */
+            .profile-text div {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <main class="container">
+        <section class="section">
+            <div class="profile-container">
+                <div class="profile-text">
+                    <h1>Ravindrakumar M. Purohit</h1>
+                    
+                    <p style="margin-bottom: 0.2rem;">
+                        <strong>PhD Candidate @ Speech Research Lab, Dhirubhai Ambani University (formerly DA-IICT)</strong>
+                    </p>
+                    <p style="margin-bottom: 0.5rem;">
+                        Area: AI/ML/DL | Speech & Audio Signal Processing
+                    </p>
+                    <p>
+                        Recipient of the <strong>Student Research Excellence Award 2024/25</strong>.
+                    </p>
+                </div>
+
+                <div class="profile-img-container">
+                    <img src="images/ravindrakumar.png" alt="Ravindrakumar M. Purohit" class="profile-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div class="card">
+                <h3>Doctor of Philosophy (PhD)</h3>
+                <p><strong>Dhirubhai Ambani University (DA-IICT)</strong> | 2023 - Present</p>
+                <p>CPI: 8.47. Advisor: Prof. (Dr.) Hemant A. Patil.</p>
+            </div>
+            <div class="card">
+                <h3>Master of Technology (M.Tech CSE - Data Science)</h3>
+                <p><strong>Institute Of Technology, Nirma University</strong> | 2021 - 2023</p>
+                <p>CGPA: 7.57.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Achievements & Updates</h2>
+            <ul>
+                <li><strong>2024/25:</strong> Honored with Student Research Excellence Award.</li>
+                <li><strong>2025:</strong> Winner of 5MPT 2025 (5,000 cash prize).</li>
+                <li><strong>Grant:</strong> Awarded $1,000 Google Cloud Research Grant (2025).</li>
+                <li><strong>Reviewer:</strong> Invited reviewer for ICASSP 2026 and Elsevier Applied Soft Computing.</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact Information</h2>
+            <div class="card" style="border:none;">
+                <p><strong>Affiliation:</strong> Dhirubhai Ambani University (DAU), Gandhinagar, Gujarat.</p>
+                <p><strong>Phone:</strong> (+91) 9016937581</p>
+                <p><strong>Languages:</strong> Gujarati, English, Hindi</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/main.js"></script>
+</body>
+</html>
