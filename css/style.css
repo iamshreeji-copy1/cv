@@ -1,3 +1,37 @@
+
+
+/* =========================================
+   GLOBAL ZOOM SETTINGS (80% DEFAULT)
+   ========================================= */
+
+/* 1. Standard Zoom for Chrome, Edge, Safari */
+html {
+    zoom: 100%;
+}
+
+/* 2. Firefox Fallback (Firefox doesn't support 'zoom') */
+@supports (-moz-appearance:none) {
+    body {
+        transform: scale(0.8);
+        transform-origin: 0 0;
+        width: 125%; /* Compensate for shrinking */
+        overflow-x: hidden;
+    }
+}
+
+/* 3. Mobile Reset (Disable zoom on phones so it's readable) */
+@media (max-width: 768px) {
+    html {
+        zoom: 100%;
+    }
+    @supports (-moz-appearance:none) {
+        body {
+            transform: none;
+            width: 100%;
+        }
+    }
+}
+
 /* VARIABLES & THEMES - COMPACT & MINIMALIST */
 :root {
     --bg-color: #ffffff;
