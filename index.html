@@ -11,53 +11,59 @@
         .profile-container {
             display: flex;
             align-items: flex-start;
-            gap: 2rem;
-            margin-bottom: 1rem;
+            justify-content: flex-start; 
+            gap: 4rem; 
+            margin-bottom: 2rem; 
         }
+
         .profile-text {
-            flex: 1;
+            flex-grow: 0; 
+            width: 100%;
+            max-width: 700px; 
+            display: flex;
+            flex-direction: column;
         }
+
         .profile-img-container {
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            max-width: 180px; 
         }
+
         .profile-img {
             width: 180px;
-            /* height: 180px;  <-- REMOVED fixed height */
-            height: auto; /* <-- ADDED auto height to maintain aspect ratio */
-            /* object-fit: cover; <-- REMOVED to prevent cropping */
-            
-            border-radius: 4px; /* Slight rounding */
+            height: auto; 
+            border-radius: 4px;
             border: 1px solid var(--border-light);
-            
-            /* Start Black & White */
             filter: grayscale(100%); 
-            
-            /* Smooth Transition Effect */
             transition: filter 0.4s ease-in-out;
             cursor: pointer;
         }
 
-        /* COLOR ON HOVER */
         .profile-img:hover {
             filter: grayscale(0%);
         }
-        
-        /* Mobile Responsive: Stack text and image */
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .profile-container {
-                flex-direction: column-reverse; /* Image on top for mobile */
+                flex-direction: column-reverse; 
                 gap: 1.5rem;
                 align-items: center;
                 text-align: center;
             }
+            .profile-text {
+                max-width: 100%; 
+                align-items: center; /* Centers text on mobile */
+            }
             .profile-img {
                 width: 150px;
-                /* height: 150px; <-- REMOVED fixed height for mobile */
-                height: auto; /* <-- Ensure height is auto on mobile too */
+                height: auto; 
             }
-            /* Center buttons on mobile */
-            .profile-text div {
-                justify-content: center;
+            .profile-img-container {
+                max-width: 100%; 
             }
         }
     </style>
@@ -77,49 +83,100 @@
                     <p style="margin-bottom: 0.5rem;">
                         Area: AI/ML/DL | Speech & Audio Signal Processing
                     </p>
-                    <p>
-                        Recipient of the <strong>Student Research Excellence Award 2024/25</strong>.
-                    </p>
+
+                    <div style="margin-top: 1.5rem; width: 100%; text-align: center; border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
+                        
+                        <p style="color: #0056b3; font-weight: 700; font-size: 1.2rem; line-height: 1.6; margin-bottom: 0.5rem;">
+                            सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ।<br>
+                            ततो युद्धाय युज्यस्व नैवं पापमवाप्स्यसि।।
+                        </p>
+
+                        <p style="font-style: italic; color: var(--secondary-text); font-size: 0.95rem; margin-bottom: 0.5rem; line-height: 1.5;">
+                            "जय-पराजय, लाभ-हानि और सुख-दुःखको समान करके फिर युद्धमें लग जा।<br>
+                            इस प्रकार युद्ध करनेसे तू पापको प्राप्त नहीं होगा।"
+                        </p>
+
+                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--text-color);">
+                            — Shrimad Bhagavad Gita, Adhyay 2, Verse 38
+                        </p>
+                    </div>
                 </div>
 
                 <div class="profile-img-container">
                     <img src="images/ravindrakumar.png" alt="Ravindrakumar M. Purohit" class="profile-img">
+                    
+                    <p style="font-size: 0.85rem; margin-top: 0.8rem; line-height: 1.4; font-weight: 700; color: var(--accent-color); text-align: center;">
+                        Recipient of the<br>Student Research Excellence Award 2024/25.
+                    </p>
                 </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Education</h2>
-            <div class="card">
-                <h3>Doctor of Philosophy (PhD)</h3>
-                <p><strong>Dhirubhai Ambani University (DA-IICT)</strong> | 2023 - Present</p>
-                <p>CPI: 8.47. Advisor: Prof. (Dr.) Hemant A. Patil.</p>
-            </div>
-            <div class="card">
-                <h3>Master of Technology (M.Tech CSE - Data Science)</h3>
-                <p><strong>Institute Of Technology, Nirma University</strong> | 2021 - 2023</p>
-                <p>CGPA: 7.57.</p>
             </div>
         </section>
 
         <section class="section">
             <h2>Achievements & Updates</h2>
             <ul>
-                <li><strong>2024/25:</strong> Honored with Student Research Excellence Award.</li>
-                <li><strong>2025:</strong> Winner of 5MPT 2025 (5,000 cash prize).</li>
-                <li><strong>Grant:</strong> Awarded $1,000 Google Cloud Research Grant (2025).</li>
-                <li><strong>Reviewer:</strong> Invited reviewer for ICASSP 2026 and Elsevier Applied Soft Computing.</li>
+                <li>
+                    <strong>December 2025:</strong> Presented three research papers (Multi-Scale Speaker Diarization, LaghuVani, and Whisper Evaluation) at the 11th International Conference on Pattern Recognition and Machine Intelligence (PReMI 2025), Delhi.
+                </li>
+
+                <li>
+                    <strong>December 2025:</strong> Selected to present "NaadSindhu" at the Graduate Forum, IndoML 2025, with a full travel and accommodation grant.
+                </li>
+
+                <li>
+                    <strong>December 2025:</strong> Qualified the Gujarat State Eligibility Test (GSET) for Assistant Professor, accredited by UGC, New Delhi.
+                </li>
+
+                <li>
+                    <strong>October 2025:</strong> Three research works accepted at PReMI 2025, IIT Delhi.
+                </li>
+
+                <li>
+                    <strong>September 2025:</strong> Presented "Swar: A Longformer-based GAN Vocoder for Gujarati" at EUSIPCO 2025 in Palermo, Italy.
+                </li>
+
+                <li>
+                    <strong>September 2025:</strong> Two research papers ("BAANI" and "DAU-KDAH Corpus") accepted at APSIPA ASC 2025, Singapore.
+                </li>
+
+                <li>
+                    <strong>September 2025:</strong> Awarded a $1,000 Google Cloud Research Grant to support ongoing research activities.
+                </li>
+
+                <li>
+                    <strong>July 2025:</strong> Winner of the 5-Minute Presentation (5MPT) competition at S4P 2025, receiving a ₹5,000 cash prize.
+                </li>
+
+                <li>
+                    <strong>December 2024:</strong> Honored with the Student Research Excellence Award (2024/25) by the Director of DAU for outstanding research contributions.
+                </li>
+
+                <li>
+                    <strong>November 2024:</strong> Three papers ("GGMDDC", "PPHiFi-TTS", and "GPGAN-VC") accepted at APSIPA ASC 2024, Macau, China.
+                </li>
+
+                <li>
+                    <strong>November 2024:</strong> Research paper "FC-HiFiGAN" accepted at the 27th International Conference on Pattern Recognition (ICPR 2024), Kolkata.
+                </li>
+
+                <li>
+                    <strong>November 2025:</strong> Invited reviewer for IEEE ICASSP 2026 and Elsevier Applied Soft Computing Journal.
+                </li>
+
+                <li>
+                    <strong>July 2024:</strong> Volunteered at the Summer School on Speech Signal Processing (S4P'24) organized by the Speech Research Lab, DA-IICT.
+                </li>
+
+                <li>
+                    <strong>August 2023:</strong> Joined the Speech Research Lab at Dhirubhai Ambani University as a Ph.D. Candidate.
+                </li>
+
+                <li>
+                    <strong>May 2023:</strong> Completed M.Tech in CSE (Data Science) from Nirma University, Ahmedabad.
+                </li>
             </ul>
         </section>
 
-        <section id="contact" class="section">
-            <h2>Contact Information</h2>
-            <div class="card" style="border:none;">
-                <p><strong>Affiliation:</strong> Dhirubhai Ambani University (DAU), Gandhinagar, Gujarat.</p>
-                <p><strong>Phone:</strong> (+91) 9016937581</p>
-                <p><strong>Languages:</strong> Gujarati, English, Hindi</p>
-            </div>
-        </section>
     </main>
 
     <div id="footer-placeholder"></div>

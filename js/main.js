@@ -132,3 +132,160 @@ window.googleTranslateElementInit = function() {
         autoDisplay: false
     }, 'google_translate_element');
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadComponents();
+});
+
+async function loadComponents() {
+    // 1. Inject Navbar and Footer
+    try {
+        const navReq = await fetch('components/navbar.html');
+        const footerReq = await fetch('components/footer.html');
+        
+        if (navReq.ok) document.getElementById('nav-placeholder').innerHTML = await navReq.text();
+        if (footerReq.ok) document.getElementById('footer-placeholder').innerHTML = await footerReq.text();
+        
+        initializeControls();
+    } catch (error) {
+        console.error("Error loading components:", error);
+    }
+}
+
+function initializeControls() {
+    // --- POPUP LOGIC ---
+    initPopup();
+
+    // --- THEME TOGGLE ---
+    const themeBtn = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    if(themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    }
+
+    // --- SMART FONT SIZE CONTROLS ---
+    const html = document.documentElement;
+    const btnSmall = document.getElementById('btn-font-small');
+    const btnMedium = document.getElementById('btn-font-medium');
+    const btnIncrease = document.getElementById('btn-font-increase');
+
+    const applyFontSize = (sizeName) => {
+        if (sizeName === 'small') html.style.fontSize = '85%';
+        else if (sizeName === 'medium') html.style.fontSize = '100%';
+        else if (sizeName === 'large') html.style.fontSize = '120%';
+        else if (sizeName === 'xlarge') html.style.fontSize = '145%';
+        localStorage.setItem('fontSize', sizeName);
+    };
+
+    let currentSize = localStorage.getItem('fontSize') || 'medium';
+    applyFontSize(currentSize);
+
+    if(btnSmall) {
+        btnSmall.addEventListener('click', () => {
+            currentSize = 'small';
+            applyFontSize(currentSize);
+        });
+    }
+    if(btnMedium) {
+        btnMedium.addEventListener('click', () => {
+            currentSize = 'medium';
+            applyFontSize(currentSize);
+        });
+    }
+    if(btnIncrease) {
+        btnIncrease.addEventListener('click', () => {
+            if (currentSize === 'small' || currentSize === 'medium') {
+                currentSize = 'large';
+            } else if (currentSize === 'large') {
+                currentSize = 'xlarge';
+            } 
+            applyFontSize(currentSize);
+        });
+    }
+
+    // --- TEXT TO SPEECH (TTS) LOGIC ---
+    const ttsBtn = document.getElementById('tts-toggle');
+    let isSpeaking = false;
+    let speech = new SpeechSynthesisUtterance();
+
+    if(ttsBtn) {
+        ttsBtn.addEventListener("click", () => {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                ttsBtn.innerHTML = "🔊"; 
+            } else {
+                const content = document.querySelector("main") ? document.querySelector("main").innerText : document.body.innerText;
+                speech.text = content;
+                speech.rate = 1;
+                speech.pitch = 1;
+                window.speechSynthesis.speak(speech);
+                isSpeaking = true;
+                ttsBtn.innerHTML = "Cc"; 
+            }
+        });
+
+        speech.onend = function() {
+            isSpeaking = false;
+            ttsBtn.innerHTML = "🔊";
+        };
+    }
+
+    // --- GOOGLE TRANSLATE INIT ---
+    if (!document.getElementById('google-translate-script')) {
+        const script = document.createElement('script');
+        script.id = 'google-translate-script';
+        script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        document.body.appendChild(script);
+    }
+}
+
+// --- NEW FUNCTION: CREATE POPUP (UPDATED) ---
+function initPopup() {
+    // REMOVED the check for sessionStorage so it runs every time.
+
+    // 1. Create the HTML Structure
+    const popupHTML = `
+        <div id="dev-popup" class="popup-overlay">
+            <div class="popup-content">
+                <h3 style="margin-bottom: 1rem;">Notice</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 0;">Under development!</p>
+                <button id="popup-close-btn" class="popup-btn">I understand!</button>
+            </div>
+        </div>
+    `;
+
+    // 2. Inject into Body
+    document.body.insertAdjacentHTML('beforeend', popupHTML);
+
+    // 3. Logic to Show/Hide
+    const popup = document.getElementById('dev-popup');
+    const closeBtn = document.getElementById('popup-close-btn');
+
+    // Show immediately
+    popup.style.display = 'flex';
+
+    // Handle Close
+    closeBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+        // REMOVED the line that saves to sessionStorage
+    });
+}
+
+// Callback for Google Translate
+window.googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,gu,zh-CN,es,ar,fr,ru,pt,de,ja,bn,mr,ta,te,ur,ko,it,tr,id', 
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+}

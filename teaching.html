@@ -4,41 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teaching | Ravindrakumar M. Purohit</title>
+    
     <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="icon" type="image/png" href="images/ravindrakumar.png">
+
+    <style>
+        /* Styles for Automatic Numbering (Matching Other Pages) */
+        ol.teaching-list {
+            padding-left: 1.5rem; /* Indent for numbers */
+            margin-top: 1rem;
+        }
+        ol.teaching-list li {
+            padding-left: 0.5rem; /* Space between number and content */
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Heading Style inside List */
+        ol.teaching-list li h3 {
+            font-size: 1rem; 
+            font-weight: 700;
+            margin: 0 0 0.3rem 0;
+            line-height: 1.4;
+        }
+
+        /* Paragraph Spacing */
+        ol.teaching-list li p {
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 <body>
     <div id="nav-placeholder"></div>
 
     <main class="container">
         <section class="section">
-            <h1 data-i18n="nav_teaching">Teaching Experience</h1>
+            <h1>Teaching Experience</h1>
+            <p>Experience as an Assistant Professor, Teaching Assistant, and Research Fellow.</p>
         </section>
 
         <section class="section">
-            <div class="timeline-item">
-                <h3>Teaching Assistant (Winter '26)</h3>
-                <p><strong>DAU, Gandhinagar:</strong> Assisting in IT113 Programming in C (350+ students).</p>
-            </div>
-            
-            <div class="timeline-item">
-                <h3>Teaching Assistant (Fall '24)</h3>
-                <p><strong>DAU, Gandhinagar:</strong> Assisting in IE403 Human Computer Interaction (105+ students).</p>
-            </div>
+            <ol class="teaching-list">
+                
+                <li class="card">
+                    <h3>Teaching Assistant (Winter '26)</h3>
+                    <p><strong>Dhirubhai Ambani University (DAU)</strong> | August 2025 - Present</p>
+                    <p>Assisting in IT113 Programming in C (350+ students).</p>
+                </li>
 
-            <div class="timeline-item">
-                <h3>Teaching Assistant (Winter '24)</h3>
-                <p><strong>DAU, Gandhinagar:</strong> Assisting in IT205/IT206 C++ and Data Structures (350+ students).</p>
-            </div>
+                <li class="card">
+                    <h3>Teaching Assistant (Winter '25)</h3>
+                    <p><strong>Dhirubhai Ambani University (DAU)</strong> | January 2025 - May 2025</p>
+                    <p>Assisted in IT584 Approximation Algorithm (100+ students).</p>
+                </li>
 
-            <div class="timeline-item">
-                <h3>Assistant Professor (May - June 2023)</h3>
-                <p><strong>Ganpat University:</strong> Mentored students in computing and engineering.</p>
-            </div>
+                <li class="card">
+                    <h3>Teaching Assistant (Fall '24)</h3>
+                    <p><strong>Dhirubhai Ambani University (DAU)</strong> | August 2024 - December 2024</p>
+                    <p>Assisted in IE403 Human Computer Interaction (105+ students).</p>
+                </li>
+
+                <li class="card">
+                    <h3>Teaching Assistant (Winter '24)</h3>
+                    <p><strong>Dhirubhai Ambani University (DAU)</strong> | January 2024 - May 2024</p>
+                    <p>Assisted in IT205/IT206 C++ and Data Structures (350+ students).</p>
+                </li>
+
+                <li class="card">
+                    <h3>Teaching Assistant (Fall '23)</h3>
+                    <p><strong>Dhirubhai Ambani University (DAU)</strong> | August 2023 - December 2023</p>
+                    <p>Managed logistics and led a team of 10 for IT112/IT113 Programming in C (350+ students).</p>
+                </li>
+
+                <li class="card">
+                    <h3>Junior Research Fellow</h3>
+                    <p><strong>IIT Gandhinagar</strong> | June 2023 - August 2023</p>
+                    <p>Worked on the creation and implementation of benchmarks for low-level NLP tasks.</p>
+                </li>
+
+                <li class="card">
+                    <h3>Assistant Professor</h3>
+                    <p><strong>Ganpat University, Mahesana</strong> | May 2023 - June 2023</p>
+                    <p>Mentored students in computing, engineering, and the built environment.</p>
+                </li>
+
+                <li class="card">
+                    <h3>Teaching Assistant</h3>
+                    <p><strong>Nirma University, Ahmedabad</strong> | August 2021 - February 2022</p>
+                    <p>Conducted research and technical reviews on various AWS cloud services.</p>
+                </li>
+
+            </ol>
         </section>
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="js/translations.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
